@@ -50,6 +50,7 @@ features:
 * no [GC](https://en.wikipedia.org/wiki/Garbage_collection_%28computer_science%29):
     * tight memory consumption
     * predictive performance
+    * no runtime (other language integration and low level programming)
 
 ---
 
@@ -78,31 +79,7 @@ enum Option<T> {
 }
 ```
 
----
-
-# Reliable
-
-## Enums
-
-```rust
-enum Coin {
-    Penny,
-    Nickel,
-    Dime,
-    Adamantium(usize),
-}
-
-fn value_in_cents(coin: Coin) -> usize {
-    match coin {
-        Coin::Penny => 1,
-        Coin::Adamantium(size) => 25 * size,
-        _ => 3,
-    }
-}
-```
-
-[link to playground](https://play.rust-lang.org/?gist=3dcb04eab58dff65cd4760aee0388f01&version=stable&mode=debug)
-
+TODO function prototype examples
 ---
 
 # Reliable
@@ -124,7 +101,7 @@ enum Result<T, E> {
 
 # Reliable
 
- * @fa[ban red] race condition @fa[ban red]
+ * @fa[ban red] data race @fa[ban red]
  * @fa[ban red] use after free @fa[ban red]
  * @fa[ban red] double free @fa[ban red]
 
@@ -164,7 +141,7 @@ Statically analyse the code to ensure the memory safety and ownership model.
 
 # Conclusion
 
-* @fa[frown faa-failing animated red] steep lurning curve
-* @fa[frown faa-pulse animated red] borrow checker 
-* @fa[heart faa-failing animated red] borrow checker 
+- @fa[frown fa-failing animated red](steep lurning curve)
+- @fa[frown faa-pulse animated red](borrow checker)
+- @fa[heart faa-falling animated ] borrow checker
 
