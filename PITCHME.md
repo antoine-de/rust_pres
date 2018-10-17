@@ -10,41 +10,50 @@ Quick Rust overview
 
 ---?image=assets/PPrust.png&size=auto 70%
 
+@snap[east splitscreen]
 From [David Marino](http://leftoversalad.com/c/015_programmingpeople/)
+@snapend
 
 ---
 
 # History
 
 * 2006 personal project 
-    * probably named after [fungus](https://www.reddit.com/r/rust/comments/27jvdt/internet_archaeology_the_definitive_endall_source/)
 * Mozilla sponsored in 2009 
-* 1.0 in 2012
+* 1.0 in 2015
 
 ---
 
+  * curly-bracket languages
+  * statically typed 
 
-@snap[north]
-@size[1.5em](Curly-bracket languages)
-@snapend
+---
 
-@snap[west]
-@ul[](false)
+### features 
+
   * zero-cost abstractions
   * guaranteed memory safety
   * threads without data races
-@ulend
-@snapend
 
-@snap[east]
-@ul[](false)
+---
+
+### features
+
   * move semantics
   * trait-based generics
   * pattern matching
   * type inference
+  * sane default (interior immutability, move, ...)
   * efficient C bindings
-@ulend
-@snapend
+
+---
+
+### What it has not
+
+ * exceptions
+ * inheritance
+ * function overloading
+ * templates as powerful as in c++
 
 ---
 
@@ -62,28 +71,24 @@ From [David Marino](http://leftoversalad.com/c/015_programmingpeople/)
 
 # Fast
 
-* based on [llvm](https://llvm.org/)
-* performance on par with c/c++ 
-* no [GC](https://en.wikipedia.org/wiki/Garbage_collection_%28computer_science%29):
-    * tight memory consumption
-    * predictive performance
-* no runtime (other language integration and low level programming)
+ * based on [llvm](https://llvm.org/)
+ * performance on par with c/c++ 
+ * no [GC](https://en.wikipedia.org/wiki/Garbage_collection_%28computer_science%29):
+     * tight memory consumption
+     * predictive performance
+ * no runtime (other language integration and low level programming)
 
 ---
 
 # Reliable
 
 ---
-
-# Reliable
 
  * @fa[ban red] uninitialized variable @fa[ban red]
 
 It's impossible not to initialize a variable.
 
 ---
-
-# Reliable
 
  * @fa[ban red] NullPointerException @fa[ban red]
 
@@ -106,8 +111,6 @@ fn get(&self, val: u32) -> Option<String>
 
 ---
 
-# Reliable
-
 ## No Exceptions
 
 ```
@@ -123,8 +126,6 @@ enum Result<T, E> {
 
 ---
 
-# Reliable
-
  * @fa[ban red] data race @fa[ban red]
  * @fa[ban red] use after free @fa[ban red]
  * @fa[ban red] double free @fa[ban red]
@@ -134,8 +135,6 @@ Here come's the borrow checker!
 Statically analyse the code to ensure the memory safety and ownership model.
 
 ---
-
-# Reliable
 
 ## Scope 
 
@@ -150,8 +149,6 @@ fn main() {
 
 ---
 
-# Reliable
-
 ## Ownership 
 
 Move by default
@@ -163,9 +160,9 @@ Move by default
 
 ---
 
-# Reliable
-
 ## Borrow 
+
+You can give references too
 
 ---?gist=https://gist.github.com/61bbe6d58b2c7f7d48b6cda8eeb8495b
 
@@ -173,17 +170,19 @@ Move by default
 
 ---
 
-# Reliable
-
 ## Borrow checker
 
 ---?gist=https://gist.github.com/antoine-de/c2bf26706d1c76afc5267bf4dd5f6943
+
+---
 
 ![Image-GIF](https://media.giphy.com/media/oe33xf3B50fsc/giphy.gif)
  
 ---
 
-# Reliable
+---?gist=https://gist.github.com/74f6e91ef9ef1bbc16a839b54606b29c
+
+[link to playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2015&gist=74f6e91ef9ef1bbc16a839b54606b29c)
 
 ## Borrow & mutability
 "1, 2, 3, soleil !"
@@ -199,7 +198,7 @@ Move by default
 # Productive
 
 * nice build errors
-* cargo
+* nice tooling: cargo, rustfmt, doc, tests, ...
 * iters
 * macros
 
@@ -207,7 +206,19 @@ Move by default
 
 # Conclusion
 
-- @fa[frown fa-failing animated red](steep lurning curve)
-- @fa[frown faa-pulse animated red](borrow checker)
-- @fa[heart faa-falling animated ] borrow checker
+- 😞 steep lurning curve
+- 😞 borrow checker
+- 💖 borrow checker
+- 💖 refactoring is a brease
+- 💖 great tooling out of the box 
+- 💖 fast evolving language (Rust 2018!) 
+- 😞 young ecosystem 
+
+---
+
+# Links
+
+ * [rust doc](https://doc.rust-lang.org/)
+ * [nice slides](http://manishearth.github.io/Presentations/Rust/)
+ * [nice slides too](http://pnkfx.org/cyot/tutorial/slides/whistler_rust_intro.html)
 
